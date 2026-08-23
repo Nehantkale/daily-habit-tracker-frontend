@@ -12,7 +12,7 @@ Replace:
 - src/pages/Settings.jsx
 
 Backend API expected:
-http://localhost:8080
+https://daily-habit-tracker-backend-orte.onrender.com
 
 Existing routes expected:
 - /dashboard

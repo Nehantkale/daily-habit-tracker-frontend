@@ -27,7 +27,7 @@ function Dashboard() {
 
   const loadDashboard = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/dashboard", auth);
+      const response = await axios.get("https://daily-habit-tracker-backend-orte.onrender.com/dashboard", auth);
       setDashboard(response.data);
     } catch (error) {
       console.log(error);
@@ -36,7 +36,7 @@ function Dashboard() {
 
   const loadTodayHabits = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/habits/today", auth);
+      const response = await axios.get("https://daily-habit-tracker-backend-orte.onrender.com/habits/today", auth);
       setHabits(response.data);
     } catch (error) {
       console.log(error);
@@ -46,7 +46,7 @@ function Dashboard() {
   const loadHistory = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/habits/history?month=${month}&year=${year}`,
+        `https://daily-habit-tracker-backend-orte.onrender.com/habits/history?month=${month}&year=${year}`,
         auth
       );
       setHistory(response.data);
@@ -58,7 +58,7 @@ function Dashboard() {
   const completeHabit = async (habitId) => {
     try {
       await axios.post(
-        `http://localhost:8080/habits/${habitId}/complete`,
+        `https://daily-habit-tracker-backend-orte.onrender.com/habits/${habitId}/complete`,
         {},
         auth
       );

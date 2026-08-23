@@ -19,7 +19,7 @@ function XP() {
   const loadXP = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/habits",
+        "https://daily-habit-tracker-backend-orte.onrender.com/habits",
         auth
       );
 
@@ -32,7 +32,7 @@ function XP() {
       const results = await Promise.all(
         activeHabits.map(async (habit) => {
           const response = await axios.get(
-            `http://localhost:8080/xp/${habit.id}/level`,
+            `https://daily-habit-tracker-backend-orte.onrender.com/xp/${habit.id}/level`,
             auth
           );
 

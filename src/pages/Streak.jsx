@@ -19,7 +19,7 @@ function Streak() {
   const loadStreaks = async () => {
     try {
       const habitsResponse = await axios.get(
-        "http://localhost:8080/habits",
+        "https://daily-habit-tracker-backend-orte.onrender.com/habits",
         auth
       );
 
@@ -33,11 +33,11 @@ function Streak() {
         activeHabits.map(async (habit) => {
           const [current, longest] = await Promise.all([
             axios.get(
-              `http://localhost:8080/habits/${habit.id}/streak`,
+              `https://daily-habit-tracker-backend-orte.onrender.com/habits/${habit.id}/streak`,
               auth
             ),
             axios.get(
-              `http://localhost:8080/habits/${habit.id}/longest-streak`,
+              `https://daily-habit-tracker-backend-orte.onrender.com/habits/${habit.id}/longest-streak`,
               auth
             )
           ]);

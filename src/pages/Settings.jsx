@@ -22,7 +22,7 @@ function Settings() {
   const loadHabits = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/habits",
+        "https://daily-habit-tracker-backend-orte.onrender.com/habits",
         auth
       );
       setHabits(response.data);
@@ -41,7 +41,7 @@ function Settings() {
 
     try {
       await axios.post(
-        "http://localhost:8080/habits",
+        "https://daily-habit-tracker-backend-orte.onrender.com/habits",
         { title, description },
         auth
       );
@@ -76,7 +76,7 @@ function Settings() {
 
     try {
       await axios.put(
-        `http://localhost:8080/habits/${id}`,
+        `https://daily-habit-tracker-backend-orte.onrender.com/habits/${id}`,
         {
           title: editTitle,
           description: editDescription,
@@ -105,7 +105,7 @@ function Settings() {
 
     try {
       await axios.delete(
-        `http://localhost:8080/habits/${id}`,
+        `https://daily-habit-tracker-backend-orte.onrender.com/habits/${id}`,
         auth
       );
 
@@ -119,7 +119,7 @@ function Settings() {
   const activateHabit = async (id) => {
     try {
       await axios.put(
-        `http://localhost:8080/habits/${id}/activate`,
+        `https://daily-habit-tracker-backend-orte.onrender.com/habits/${id}/activate`,
         {},
         auth
       );

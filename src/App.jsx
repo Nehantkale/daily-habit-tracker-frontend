@@ -6,6 +6,7 @@ import Streak from "./pages/Streak";
 import XP from "./pages/XP";
 import Achievements from "./pages/Achievements";
 import Settings from "./pages/Settings";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
@@ -21,27 +22,47 @@ function App() {
 
         <Route
           path="/dashboard"
-          element={<Dashboard />}
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
         />
 
         <Route
           path="/streak"
-          element={<Streak />}
+          element={
+            <ProtectedRoute>
+              <Streak />
+            </ProtectedRoute>
+          }
         />
 
         <Route
           path="/xp"
-          element={<XP />}
+          element={
+            <ProtectedRoute>
+              <XP />
+            </ProtectedRoute>
+          }
         />
 
         <Route
           path="/achievements"
-          element={<Achievements />}
+          element={
+            <ProtectedRoute>
+              <Achievements />
+            </ProtectedRoute>
+          }
         />
 
         <Route
           path="/settings"
-          element={<Settings />}
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
         />
 
       </Routes>

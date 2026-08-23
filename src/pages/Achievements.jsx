@@ -19,7 +19,7 @@ function Achievements() {
   const loadAchievements = async () => {
     try {
       const habitsResponse = await axios.get(
-        "http://localhost:8080/habits",
+        "https://daily-habit-tracker-backend-orte.onrender.com/habits",
         auth
       );
 
@@ -32,7 +32,7 @@ function Achievements() {
       const results = await Promise.all(
         activeHabits.map(async (habit) => {
           const response = await axios.get(
-            `http://localhost:8080/achievements/${habit.id}`,
+            `https://daily-habit-tracker-backend-orte.onrender.com/achievements/${habit.id}`,
             auth
           );
 
