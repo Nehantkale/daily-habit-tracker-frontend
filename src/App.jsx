@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Streak from "./pages/Streak";
 import XP from "./pages/XP";
@@ -9,17 +10,23 @@ import Settings from "./pages/Settings";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-
   return (
     <BrowserRouter>
-
       <Routes>
 
+        {/* Login */}
         <Route
           path="/"
           element={<Login />}
         />
 
+        {/* Registration */}
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+
+        {/* Dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -29,6 +36,7 @@ function App() {
           }
         />
 
+        {/* Streak */}
         <Route
           path="/streak"
           element={
@@ -38,6 +46,7 @@ function App() {
           }
         />
 
+        {/* XP */}
         <Route
           path="/xp"
           element={
@@ -47,6 +56,7 @@ function App() {
           }
         />
 
+        {/* Achievements */}
         <Route
           path="/achievements"
           element={
@@ -56,6 +66,7 @@ function App() {
           }
         />
 
+        {/* Settings */}
         <Route
           path="/settings"
           element={
@@ -66,7 +77,6 @@ function App() {
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }

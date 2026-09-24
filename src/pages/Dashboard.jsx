@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
   const [dashboard, setDashboard] = useState(null);
   const [habits, setHabits] = useState([]);
   const [history, setHistory] = useState([]);
@@ -27,7 +29,10 @@ function Dashboard() {
 
   const loadDashboard = async () => {
     try {
-      const response = await axios.get("https://daily-habit-tracker-backend-orte.onrender.com/dashboard", auth);
+      const response = await axios.get(
+        "https://daily-habit-tracker-backend-orte.onrender.com/dashboard",
+        auth
+      );
       setDashboard(response.data);
     } catch (error) {
       console.log(error);
@@ -36,7 +41,10 @@ function Dashboard() {
 
   const loadTodayHabits = async () => {
     try {
-      const response = await axios.get("https://daily-habit-tracker-backend-orte.onrender.com/habits/today", auth);
+      const response = await axios.get(
+        "https://daily-habit-tracker-backend-orte.onrender.com/habits/today",
+        auth
+      );
       setHabits(response.data);
     } catch (error) {
       console.log(error);
@@ -106,9 +114,11 @@ function Dashboard() {
   const daysInMonth = new Date(year, month, 0).getDate();
 
   const todayDate = new Date();
+
   const isCurrentMonth =
     todayDate.getFullYear() === year &&
     todayDate.getMonth() + 1 === month;
+
   const todayDay = todayDate.getDate();
 
   return (
@@ -145,6 +155,7 @@ function Dashboard() {
                       >
                         {habit.completed ? "✓" : ""}
                       </span>
+
                       <span>{habit.title}</span>
                     </h3>
 
@@ -201,11 +212,17 @@ function Dashboard() {
 
               {Array.from({ length: daysInMonth }, (_, index) => {
                 const day = index + 1;
+
                 const todayClass =
-                  isCurrentMonth && day === todayDay ? " today-day" : "";
+                  isCurrentMonth && day === todayDay
+                    ? " today-day"
+                    : "";
 
                 return (
-                  <div className={`day-number${todayClass}`} key={day}>
+                  <div
+                    className={`day-number${todayClass}`}
+                    key={day}
+                  >
                     {day}
                   </div>
                 );
@@ -262,13 +279,16 @@ function Dashboard() {
             <span>
               {dashboard.todayCompleted} / {dashboard.todayTotal} completed
             </span>
+
             <strong>{dashboard.completionRate}%</strong>
           </div>
 
           <div className="progress-bar">
             <div
               className="progress-bar-fill"
-              style={{ width: `${dashboard.completionRate}%` }}
+              style={{
+                width: `${dashboard.completionRate}%`
+              }}
             />
           </div>
         </div>
@@ -276,7 +296,9 @@ function Dashboard() {
         <div className="progress-card-container">
           <div className="progress-card">
             <span className="stat-icon">✓</span>
+
             <h3>Completed</h3>
+
             <div className="progress-value">
               {dashboard.todayCompleted}/{dashboard.todayTotal}
             </div>
@@ -284,7 +306,9 @@ function Dashboard() {
 
           <div className="progress-card">
             <span className="stat-icon">%</span>
+
             <h3>Completion</h3>
+
             <div className="progress-value">
               {dashboard.completionRate}%
             </div>
@@ -292,7 +316,9 @@ function Dashboard() {
 
           <div className="progress-card">
             <span className="stat-icon">🔥</span>
+
             <h3>Current Streak</h3>
+
             <div className="progress-value">
               {dashboard.currentStreak}
             </div>
@@ -300,7 +326,9 @@ function Dashboard() {
 
           <div className="progress-card">
             <span className="stat-icon">⭐</span>
+
             <h3>Total XP</h3>
+
             <div className="progress-value">
               {dashboard.totalXP}
             </div>
